@@ -14,20 +14,9 @@ const iconData = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
 
 export const trainingTracks: TrainingTrack[] = [
   {
-    title: 'AI & Machine Learning',
-    icon: iconAI,
-    featured: true,
-    topics: [
-      'Prompt engineering and advanced LLM techniques',
-      'AI agent development and orchestration',
-      'Machine learning fundamentals and applied ML',
-      'Generative AI for text, code, and media',
-      'Responsible AI and ethical deployment',
-    ],
-  },
-  {
     title: 'Web Development',
     icon: iconWeb,
+    featured: true,
     topics: [
       'Modern frontend frameworks (React, Next.js, Astro)',
       'Backend development and API architecture',
@@ -73,6 +62,16 @@ export const trainingTracks: TrainingTrack[] = [
       'SQL and database management',
       'Business intelligence and reporting',
       'Data pipeline architecture',
+    ],
+  },
+  {
+    title: 'Emerging Technologies',
+    icon: iconAI,
+    topics: [
+      'AI tools and practical applications',
+      'Automation and workflow optimization',
+      'Modern development practices',
+      'Technology evaluation and adoption',
     ],
   },
 ];

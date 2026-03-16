@@ -7,10 +7,10 @@ import CTABanner from '@components/CTABanner.astro';
 import { trainingTracks } from '@data/training';
 ---
 
-<Layout title="Training" description="AI and technology training from Omaxil Tech — structured curriculum designed to make AI accessible to organizations of all sizes.">
+<Layout title="Training" description="Professional technology training from Omaxil Tech — structured curriculum in web development, mobile apps, cloud, security, and more.">
   <Hero
-    headline="Making AI accessible to everyone"
-    subtitle="Structured training programs that demystify AI and equip teams with practical skills. We partner with organizations to bring AI literacy to the grassroots level."
+    headline="Building technical skills that matter"
+    subtitle="Structured training programs designed to develop practical capabilities. From web development to cloud infrastructure, we prepare individuals and teams for the demands of modern technology."
     compact
     backgroundImage="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1400&q=80"
     primaryCTA={{ label: 'Inquire About Training', href: '/contact/' }}
@@ -23,8 +23,8 @@ import { trainingTracks } from '@data/training';
         {[
           { title: 'Practitioner-Led', desc: 'Taught by engineers who use these tools daily, not recycled course content.' },
           { title: 'Hands-On', desc: 'Every module includes practical projects. You learn by building real things.' },
-          { title: 'Accessible', desc: 'Designed for all levels — from complete beginners to technical teams.' },
-          { title: 'Partnership-Driven', desc: 'We work with organizations to bring AI training to communities that need it.' },
+          { title: 'Accessible', desc: 'Designed for all levels — from complete beginners to experienced developers.' },
+          { title: 'Current', desc: 'Curriculum updated regularly to reflect industry demands and best practices.' },
         ].map((item) => (
           <div class="reveal card-surface p-6">
             <h3 class="text-[14px] font-display font-normal text-text-primary mb-2">{item.title}</h3>
@@ -46,25 +46,25 @@ import { trainingTracks } from '@data/training';
     </div>
   </section>
 
-  <!-- AI Deep Dive -->
+  <!-- Web Development Deep Dive -->
   <section class="section-padding">
     <div class="max-w-site mx-auto w-full px-6 md:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div class="reveal-right order-2 lg:order-1">
-          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80" alt="AI and machine learning" class="rounded-xl w-full object-cover aspect-[4/3] opacity-90" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" alt="Web development" class="rounded-xl w-full object-cover aspect-[4/3] opacity-90" loading="lazy" />
         </div>
         <div class="reveal-left order-1 lg:order-2">
           <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Featured Track</span>
-          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">AI & Machine Learning</h2>
-          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">Our flagship program. Participants progress from AI fundamentals to building production-ready agents. The curriculum is continuously updated to reflect the rapid pace of change in this field.</p>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">Full-Stack Web Development</h2>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">Our flagship program takes participants from foundational concepts to building production-ready web applications. The curriculum covers both frontend and backend technologies, preparing graduates for real-world development roles.</p>
           <ul class="mt-5 space-y-2.5">
             {[
-              'Prompt engineering — from basics to advanced techniques',
-              'Building AI agents with tool use, memory, and reasoning',
-              'Integrating LLMs into existing applications and workflows',
-              'Multi-agent systems and orchestration patterns',
-              'Responsible AI practices and ethical considerations',
-              'Practical applications across text, code, and data',
+              'HTML, CSS, and JavaScript fundamentals',
+              'Modern frontend frameworks (React, Next.js)',
+              'Backend development with Node.js and databases',
+              'API design, authentication, and security',
+              'Deployment, hosting, and performance optimization',
+              'Version control and professional workflows',
             ].map((item) => (
               <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
                 <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
@@ -72,21 +72,21 @@ import { trainingTracks } from '@data/training';
               </li>
             ))}
           </ul>
-          <div class="mt-7"><a href="/contact/" class="btn-primary">Inquire About AI Training</a></div>
+          <div class="mt-7"><a href="/contact/" class="btn-primary">Inquire About Web Development Training</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Grassroots -->
+  <!-- Partnerships -->
   <section class="section-padding bg-surface-50/30">
     <div class="max-w-site mx-auto w-full px-6 md:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div class="reveal-left">
           <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Partnerships</span>
-          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">Bringing AI to the grassroots</h2>
-          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">We believe AI should not be exclusive to well-resourced organizations. Through partnerships with ministries, NGOs, government agencies, and community organizations, we are working to democratize AI education and make it accessible to everyone.</p>
-          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">If your organization is interested in bringing AI training to your community, we would love to talk about how we can work together.</p>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">Expanding access to tech education</h2>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">Quality tech education should not be limited to those who can afford expensive bootcamps. We partner with institutions, government agencies, and community organizations to bring professional training to a wider audience.</p>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">If your organization is interested in bringing technology training to your community or workforce, we would welcome the conversation.</p>
           <div class="mt-7"><a href="/contact/" class="btn-secondary">Discuss a Partnership</a></div>
         </div>
         <div class="reveal-right">
@@ -117,5 +117,5 @@ import { trainingTracks } from '@data/training';
     </div>
   </section>
 
-  <CTABanner headline="Ready to unlock AI for your team?" subtitle="Whether for an individual or an entire organization, let's find the right path." buttonLabel="Inquire About Training" />
+  <CTABanner headline="Ready to build your team's capabilities?" subtitle="Whether for an individual or an entire organization, let's find the right program." buttonLabel="Inquire About Training" />
 </Layout>

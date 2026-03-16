@@ -10,10 +10,10 @@ import { services } from '@data/services';
 
 <Layout title="Home">
   <Hero
-    headline="With AI, anything is possible"
-    subtitle="Omaxil Tech builds intelligent solutions that simplify how you work. We design, develop, and deploy AI-powered systems — and we train teams to use them effectively."
+    headline="Technology that drives results"
+    subtitle="Omaxil Tech builds software solutions that simplify operations, reduce costs, and help businesses scale. From web applications to enterprise systems — we deliver technology that works."
     primaryCTA={{ label: 'Explore Services', href: '/services/' }}
-    secondaryCTA={{ label: 'Get Started', href: '/contact/' }}
+    secondaryCTA={{ label: 'Get in Touch', href: '/contact/' }}
     backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80"
   />
 
@@ -26,7 +26,7 @@ import { services } from '@data/services';
         <SectionHeading
           label="Services"
           title="What we build"
-          subtitle="From web applications to AI agents, ERP systems to automation workflows — we deliver solutions that work."
+          subtitle="Web applications, mobile apps, enterprise systems, and custom software — engineered to solve real business problems."
         />
       </div>
 
@@ -45,24 +45,24 @@ import { services } from '@data/services';
     </div>
   </section>
 
-  <!-- AI-Powered Section -->
+  <!-- Why Omaxil -->
   <section class="section-padding bg-surface-50/40">
     <div class="max-w-site mx-auto w-full px-6 md:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div class="reveal-left">
-          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">AI at the Core</span>
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Why Omaxil Tech</span>
           <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
-            We believe AI should be accessible to everyone
+            Quality technology at a cost that makes sense
           </h2>
           <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
-            AI is not just for tech giants. We partner with organizations of all sizes — businesses, ministries, government agencies, and grassroots initiatives — to bring intelligent automation within reach. Our mission is to simplify complex workflows and unlock new possibilities through AI.
+            We combine technical expertise with practical business understanding to deliver solutions that actually work. No unnecessary complexity. No inflated timelines. Just reliable software built by engineers who take pride in their craft.
           </p>
           <ul class="mt-6 space-y-3">
             {[
-              'AI agents that automate repetitive tasks and decision-making',
-              'Custom LLM integrations tailored to your specific workflows',
-              'Training programs that demystify AI for non-technical teams',
-              'Partnerships to bring AI capabilities to underserved communities',
+              'Clear communication and predictable delivery timelines',
+              'Solutions designed for your budget without sacrificing quality',
+              'Long-term support — we stand behind what we build',
+              'Modern technology stack that scales with your growth',
             ].map((item) => (
               <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
                 <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
@@ -71,13 +71,13 @@ import { services } from '@data/services';
             ))}
           </ul>
           <div class="mt-8">
-            <a href="/training/" class="btn-primary">Learn About AI Training</a>
+            <a href="/about/" class="btn-primary">About Us</a>
           </div>
         </div>
         <div class="reveal-right">
           <img
-            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
-            alt="AI technology"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+            alt="Technology team"
             class="rounded-xl w-full object-cover aspect-[4/3] opacity-90"
             loading="lazy"
           />
@@ -101,17 +101,17 @@ import { services } from '@data/services';
         <div class="reveal-left order-1 lg:order-2">
           <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Training Programs</span>
           <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
-            Making AI knowledge accessible
+            Building tech skills that matter
           </h2>
           <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
-            We run structured training programs designed to bring AI literacy to organizations at every level. From prompt engineering fundamentals to building production AI agents — our curriculum is practical, current, and taught by practitioners.
+            We run structured training programs for individuals, teams, and organizations. Our curriculum covers web development, mobile apps, cloud infrastructure, cybersecurity, and emerging technologies — taught by practitioners who use these tools daily.
           </p>
           <ul class="mt-6 space-y-3">
             {[
               'Hands-on curriculum developed by working engineers',
               'Programs for individuals, teams, and entire organizations',
-              'Grassroots partnerships to democratize AI education',
-              'Specialized tracks in web, mobile, cloud, and cybersecurity',
+              'Partnerships with institutions to expand tech education',
+              'Specialized tracks in web, mobile, cloud, and security',
             ].map((item) => (
               <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
                 <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
@@ -140,8 +140,8 @@ import { services } from '@data/services';
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 stagger">
         {[
-          { step: '01', title: 'Understand', desc: 'We start by listening. What are you trying to achieve? What workflows need simplifying? Where can AI create real value?' },
-          { step: '02', title: 'Build', desc: 'Iterative development with regular checkpoints. We keep you informed and adjust as we learn more about your needs.' },
+          { step: '01', title: 'Understand', desc: 'We start by listening. What problems are you solving? What does success look like? We map your requirements before writing any code.' },
+          { step: '02', title: 'Build', desc: 'Iterative development with regular checkpoints. We keep you informed, demo progress frequently, and adjust as we learn together.' },
           { step: '03', title: 'Deploy & Support', desc: 'We launch, train your team, and stay engaged. Long-term support is standard — we are invested in your success.' },
         ].map((item) => (
           <div class="reveal card-surface p-7">
@@ -155,7 +155,7 @@ import { services } from '@data/services';
   </section>
 
   <CTABanner
-    headline="Ready to explore what's possible?"
-    subtitle="Let's discuss how AI can simplify your work and unlock new capabilities."
+    headline="Ready to build something great?"
+    subtitle="Let's discuss how technology can solve your business challenges."
   />
 </Layout>
