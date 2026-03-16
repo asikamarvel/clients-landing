@@ -1,0 +1,121 @@
+---
+interface Props {
+  formspreeEndpoint?: string;
+}
+
+const { formspreeEndpoint = 'https://formspree.io/f/mqagvzgp' } = Astro.props;
+---
+
+<form id="contact-form" action={formspreeEndpoint} method="POST" novalidate class="space-y-6">
+  <div>
+    <label for="name" class="block text-sm font-medium text-text-secondary mb-2">Your Name</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      placeholder="John Doe"
+      class="w-full px-4 py-3 bg-surface-100 border border-surface-300 rounded-btn text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+    />
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-text-secondary mb-2">Email Address</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      placeholder="john@company.com"
+      class="w-full px-4 py-3 bg-surface-100 border border-surface-300 rounded-btn text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+    />
+  </div>
+
+  <div>
+    <label for="company" class="block text-sm font-medium text-text-secondary mb-2">
+      Company <span class="text-text-muted">(optional)</span>
+    </label>
+    <input
+      type="text"
+      name="company"
+      id="company"
+      placeholder="Your Company Inc."
+      class="w-full px-4 py-3 bg-surface-100 border border-surface-300 rounded-btn text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+    />
+  </div>
+
+  <div>
+    <label for="service" class="block text-sm font-medium text-text-secondary mb-2">Service of Interest</label>
+    <select
+      name="service"
+      id="service"
+      class="w-full px-4 py-3 bg-surface-100 border border-surface-300 rounded-btn text-text-primary focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors appearance-none cursor-pointer"
+    >
+      <option value="">Select a service...</option>
+      <option>Web Design & Management</option>
+      <option>App Design & Development</option>
+      <option>Software & Agent Development</option>
+      <option>ERP Solutions</option>
+      <option>Business & Digital Transformation</option>
+      <option>Project Management & Consultancy</option>
+      <option>Tech Training</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-text-secondary mb-2">Your Message</label>
+    <textarea
+      name="message"
+      id="message"
+      rows="5"
+      required
+      placeholder="Tell us about your project or needs..."
+      class="w-full px-4 py-3 bg-surface-100 border border-surface-300 rounded-btn text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-vertical min-h-[120px]"
+    ></textarea>
+  </div>
+
+  <!-- Honeypot -->
+  <input type="text" name="_gotcha" style="display:none" />
+
+  <button type="submit" class="btn-primary w-full">Send Message</button>
+  <p id="form-status" class="text-sm text-center text-text-muted"></p>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        if (status) {
+          status.style.color = '#10b981';
+          status.textContent = 'Message sent successfully. We\'ll get back to you soon.';
+        }
+        btn.textContent = 'Sent ✓';
+        form.reset();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch {
+      if (status) {
+        status.style.color = '#ef4444';
+        status.textContent = 'Something went wrong. Please try again or email us directly.';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  headline?: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+}
+
+const {
+  headline = 'Ready to build something exceptional?',
+  subtitle = "Let's discuss how we can help transform your business.",
+  buttonLabel = 'Get in Touch',
+  buttonHref = '/contact/',
+} = Astro.props;
+---
+
+<section class="section-padding">
+  <div class="max-w-site mx-auto w-full px-6 md:px-8">
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-surface-100 to-surface-50 border border-surface-300 px-8 py-16 md:px-16 md:py-20 text-center">
+      <!-- Accent glows -->
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/[0.06] rounded-full blur-[100px]"></div>
+      <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/[0.04] rounded-full blur-[100px]"></div>
+
+      <div class="relative z-10">
+        <h2 class="text-section-title font-display font-semibold text-text-primary">{headline}</h2>
+        <p class="mt-4 text-lg text-text-secondary max-w-xl mx-auto">{subtitle}</p>
+        <div class="mt-8">
+          <a href={buttonHref} class="btn-primary">{buttonLabel}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

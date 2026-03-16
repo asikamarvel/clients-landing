@@ -1,0 +1,148 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import PartnerLogos from '@components/PartnerLogos.astro';
+import CTABanner from '@components/CTABanner.astro';
+---
+
+<Layout
+  title="About"
+  description="Learn about Omaxil Tech — our mission, values, and the team behind world-class technology solutions and training."
+>
+  <!-- Hero -->
+  <Hero
+    headline="Built to Deliver. <span class='text-gradient'>Driven to Excel.</span>"
+    subtitle="We're a technology company on a mission to help businesses succeed with solutions that actually work — built by people who care about the craft."
+    compact
+    backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80"
+  />
+
+  <!-- Our Story -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <SectionHeading
+            label="Our Story"
+            title="From Abuja to the World"
+            align="left"
+          />
+          <div class="space-y-4 text-text-secondary leading-relaxed -mt-8">
+            <p>
+              Omaxil Tech was founded with a clear conviction: that world-class technology solutions should not be limited by geography. Based in Abuja, Nigeria, we serve clients across the United States, Europe, and Africa — delivering the same quality, rigor, and professionalism you would expect from any top-tier global firm.
+            </p>
+            <p>
+              Our team combines deep technical expertise with real business understanding. We do not build technology for technology's sake — every line of code, every design decision, every strategy recommendation is tied to a tangible business outcome.
+            </p>
+            <p>
+              From web platforms and mobile applications to AI-powered agents and enterprise ERP systems, we have built a reputation for delivering complex projects with clarity, precision, and genuine care for our clients' success.
+            </p>
+          </div>
+        </div>
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
+            alt="Team collaboration"
+            class="rounded-2xl w-full object-cover aspect-[4/3]"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card-surface p-10">
+          <span class="inline-block text-accent text-sm font-medium tracking-widest uppercase mb-4">Mission</span>
+          <h3 class="text-2xl font-display font-semibold text-text-primary mb-4">
+            Engineering excellence, delivered globally
+          </h3>
+          <p class="text-text-secondary leading-relaxed">
+            To provide businesses worldwide with technology solutions and professional training that drive real growth — built on expertise, transparency, and an unwavering commitment to quality.
+          </p>
+        </div>
+        <div class="card-surface p-10">
+          <span class="inline-block text-accent text-sm font-medium tracking-widest uppercase mb-4">Vision</span>
+          <h3 class="text-2xl font-display font-semibold text-text-primary mb-4">
+            A globally trusted technology partner
+          </h3>
+          <p class="text-text-secondary leading-relaxed">
+            To be recognized internationally as the go-to partner for businesses seeking reliable, innovative, and results-driven technology solutions — proving that excellence has no borders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <SectionHeading
+        label="Our Values"
+        title="What Guides Every Decision"
+        subtitle="These are not wall decorations. They shape how we work, who we hire, and how we treat every client engagement."
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Excellence', desc: 'We hold ourselves to the highest standard. If it does not meet our bar, it does not ship.' },
+          { title: 'Innovation', desc: "We stay ahead of the curve — embracing new technologies and approaches before they become yesterday's news." },
+          { title: 'Transparency', desc: 'No black boxes. Our clients know exactly what we are building, why, and how much it costs.' },
+          { title: 'Partnership', desc: "Your success is our success. We invest in relationships, not transactions." },
+          { title: 'Impact', desc: 'Every project should move the needle. We measure our work by the outcomes it delivers.' },
+          { title: 'Continuous Learning', desc: "Technology never stops evolving, and neither do we. That's why training is at our core." },
+        ].map((value) => (
+          <div class="card-surface p-8">
+            <h3 class="text-lg font-display font-semibold text-text-primary mb-2">{value.title}</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">{value.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <SectionHeading
+        label="Our Team"
+        title="The People Behind the Work"
+        subtitle="Senior engineers, designers, consultants, and trainers with deep expertise across technologies and industries."
+      />
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {[
+          { name: 'Team Member', role: 'Lead Engineer', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
+          { name: 'Team Member', role: 'Design Lead', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80' },
+          { name: 'Team Member', role: 'AI Specialist', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80' },
+          { name: 'Team Member', role: 'Project Lead', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
+        ].map((member) => (
+          <div class="text-center">
+            <img
+              src={member.img}
+              alt={member.role}
+              class="w-full aspect-square object-cover rounded-2xl mb-4"
+              loading="lazy"
+            />
+            <h4 class="font-display font-semibold text-text-primary">{member.name}</h4>
+            <p class="text-sm text-text-muted">{member.role}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-text-muted text-sm mt-8">Photos and bios coming soon. Our team is very real — just camera-shy.</p>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <PartnerLogos />
+
+  <!-- CTA -->
+  <CTABanner
+    headline="Want to work with us?"
+    subtitle="We'd love to hear about your project. Let's start a conversation."
+    buttonLabel="Contact Us"
+  />
+</Layout>

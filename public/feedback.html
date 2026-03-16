@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Client Satisfaction Feedback | Omaxil Tech</title>
+  <meta name="description" content="Quick 2-minute client satisfaction feedback for Omaxil Tech" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --accent:#10b981;
+      --accent-light:#34d399;
+      --bg:#0a0a0b;
+      --surface:#111113;
+      --surface-border:rgba(255,255,255,0.04);
+      --text-primary:#f0f0f0;
+      --text-secondary:#a1a1aa;
+      --muted:#71717a;
+      --radius:16px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-secondary);
+      background:var(--bg);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+    }
+    .site{
+      width:100%;
+      max-width:640px;
+      background:var(--surface);
+      border:1px solid var(--surface-border);
+      border-radius:var(--radius);
+      padding:40px 32px;
+    }
+    header{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+    .logo-text{
+      font-family:Sora,system-ui,sans-serif;
+      font-size:1.5rem;
+      font-weight:700;
+      color:var(--text-primary);
+    }
+    .logo-dot{color:var(--accent)}
+    h1{
+      font-family:Sora,system-ui,sans-serif;
+      font-size:1.35rem;
+      font-weight:600;
+      color:var(--text-primary);
+    }
+    .intro{color:var(--muted);margin:0 0 28px 0;font-size:15px;line-height:1.6}
+
+    .feedback-form{display:flex;flex-direction:column;gap:24px}
+    .question{
+      background:rgba(255,255,255,0.01);
+      padding:24px;
+      border-radius:12px;
+      border:1px solid var(--surface-border);
+    }
+    .question-title{
+      font-weight:600;
+      margin:0 0 4px 0;
+      font-size:15px;
+      color:var(--text-primary);
+    }
+    .question-subtitle{
+      color:var(--muted);
+      margin:0 0 14px 0;
+      font-size:13px;
+    }
+
+    .star-rating{display:flex;gap:6px;flex-wrap:wrap}
+    .star-option{
+      display:flex;align-items:center;gap:6px;
+      padding:10px 14px;border-radius:8px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--surface-border);
+      cursor:pointer;transition:all 0.2s ease;font-size:13px;
+    }
+    .star-option:hover{
+      background:rgba(16,185,129,0.08);
+      border-color:var(--accent);
+    }
+    .star-option input{display:none}
+    .star-option.selected{
+      background:rgba(16,185,129,0.12);
+      border-color:var(--accent);
+      color:var(--accent);
+    }
+    .stars{color:#fbbf24;letter-spacing:1px}
+
+    .radio-group{display:flex;flex-direction:column;gap:8px}
+    .radio-option{
+      display:flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:8px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--surface-border);
+      cursor:pointer;transition:all 0.2s ease;font-size:14px;
+    }
+    .radio-option:hover{
+      background:rgba(16,185,129,0.08);
+      border-color:var(--accent);
+    }
+    .radio-option input[type="radio"]{
+      width:18px;height:18px;accent-color:var(--accent);cursor:pointer;
+    }
+    .radio-option.selected{
+      background:rgba(16,185,129,0.12);
+      border-color:var(--accent);
+    }
+
+    textarea{
+      width:100%;min-height:100px;padding:12px;
+      border-radius:8px;border:1px solid var(--surface-border);
+      background:rgba(255,255,255,0.02);
+      color:inherit;font-family:inherit;font-size:14px;
+      resize:vertical;transition:border-color 0.2s;
+    }
+    textarea:focus{outline:none;border-color:var(--accent)}
+    textarea::placeholder{color:var(--muted)}
+
+    .checkbox-wrapper{
+      display:flex;align-items:flex-start;gap:10px;
+      margin-top:12px;font-size:13px;color:var(--muted);
+    }
+    .checkbox-wrapper input[type="checkbox"]{
+      width:18px;height:18px;accent-color:var(--accent);
+      cursor:pointer;flex-shrink:0;margin-top:2px;
+    }
+
+    .submit-btn{
+      width:100%;padding:14px;border-radius:10px;
+      background:var(--accent);border:0;
+      color:var(--bg);font-weight:700;font-size:15px;
+      cursor:pointer;transition:all 0.2s;
+    }
+    .submit-btn:hover{background:var(--accent-light);box-shadow:0 4px 20px rgba(16,185,129,0.2)}
+    .submit-btn:disabled{opacity:0.6;cursor:not-allowed}
+
+    #note{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
+
+    footer{
+      margin-top:28px;padding-top:16px;
+      border-top:1px solid var(--surface-border);
+      color:var(--muted);font-size:12px;
+      display:flex;justify-content:space-between;
+      align-items:center;flex-wrap:wrap;gap:8px;
+    }
+    footer a{color:var(--accent);text-decoration:none}
+    footer a:hover{color:var(--accent-light)}
+
+    @media (max-width:500px){
+      .site{padding:24px 18px}
+      .star-rating{gap:4px}
+      .star-option{padding:8px 10px;font-size:12px}
+      .stars{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <main class="site" role="main">
+    <header>
+      <span class="logo-text">Omaxil<span class="logo-dot">.</span></span>
+    </header>
+    <h1 style="margin-bottom:12px">Client Satisfaction Feedback</h1>
+
+    <p class="intro">Thank you for working with Omaxil Tech. We appreciate your honest feedback to understand how well we have served you. This form will take less than 2 minutes.</p>
+
+    <form class="feedback-form" id="feedbackForm" action="https://formspree.io/f/mqagvzgp" method="POST" novalidate>
+
+      <div class="question">
+        <p class="question-title">1. Overall Experience</p>
+        <p class="question-subtitle">How would you rate your overall experience working with us?</p>
+        <div class="star-rating" role="radiogroup" aria-label="Overall experience rating">
+          <label class="star-option"><input type="radio" name="overall_experience" value="Excellent (5 stars)" required /><span class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</span><span>Excellent</span></label>
+          <label class="star-option"><input type="radio" name="overall_experience" value="Very Good (4 stars)" /><span class="stars">&#11088;&#11088;&#11088;&#11088;</span><span>Very Good</span></label>
+          <label class="star-option"><input type="radio" name="overall_experience" value="Good (3 stars)" /><span class="stars">&#11088;&#11088;&#11088;</span><span>Good</span></label>
+          <label class="star-option"><input type="radio" name="overall_experience" value="Fair (2 stars)" /><span class="stars">&#11088;&#11088;</span><span>Fair</span></label>
+          <label class="star-option"><input type="radio" name="overall_experience" value="Poor (1 star)" /><span class="stars">&#11088;</span><span>Poor</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p class="question-title">2. Communication & Process</p>
+        <p class="question-subtitle">The communication and workflow during the project were clear and professional.</p>
+        <div class="radio-group" role="radiogroup" aria-label="Communication rating">
+          <label class="radio-option"><input type="radio" name="communication" value="Strongly Agree" required /><span>Strongly Agree</span></label>
+          <label class="radio-option"><input type="radio" name="communication" value="Agree" /><span>Agree</span></label>
+          <label class="radio-option"><input type="radio" name="communication" value="Neutral" /><span>Neutral</span></label>
+          <label class="radio-option"><input type="radio" name="communication" value="Disagree" /><span>Disagree</span></label>
+          <label class="radio-option"><input type="radio" name="communication" value="Strongly Disagree" /><span>Strongly Disagree</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p class="question-title">3. Delivery & Outcome</p>
+        <p class="question-subtitle">The final deliverables met or exceeded my expectations.</p>
+        <div class="radio-group" role="radiogroup" aria-label="Delivery rating">
+          <label class="radio-option"><input type="radio" name="delivery" value="Strongly Agree" required /><span>Strongly Agree</span></label>
+          <label class="radio-option"><input type="radio" name="delivery" value="Agree" /><span>Agree</span></label>
+          <label class="radio-option"><input type="radio" name="delivery" value="Neutral" /><span>Neutral</span></label>
+          <label class="radio-option"><input type="radio" name="delivery" value="Disagree" /><span>Disagree</span></label>
+          <label class="radio-option"><input type="radio" name="delivery" value="Strongly Disagree" /><span>Strongly Disagree</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p class="question-title">4. Recommendation</p>
+        <p class="question-subtitle">How likely are you to recommend Omaxil to someone else?</p>
+        <div class="radio-group" role="radiogroup" aria-label="Recommendation likelihood">
+          <label class="radio-option"><input type="radio" name="recommendation" value="Very likely" required /><span>Very likely</span></label>
+          <label class="radio-option"><input type="radio" name="recommendation" value="Likely" /><span>Likely</span></label>
+          <label class="radio-option"><input type="radio" name="recommendation" value="Not sure" /><span>Not sure</span></label>
+          <label class="radio-option"><input type="radio" name="recommendation" value="Unlikely" /><span>Unlikely</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p class="question-title">5. Testimonial <span style="color:var(--muted);font-weight:400">(optional but appreciated)</span></p>
+        <p class="question-subtitle">If you are open to it, please share a short testimonial about your experience working with us:</p>
+        <textarea name="testimonial" placeholder="Your testimonial here..."></textarea>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="public_permission" value="Yes" />
+          <span>I give permission for this testimonial to be used publicly on Omaxil's website and marketing materials.</span>
+        </label>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none" />
+      <button type="submit" class="submit-btn">Submit Feedback</button>
+      <div id="note"></div>
+    </form>
+
+    <footer>
+      <a href="mailto:support@omaxil.com">support@omaxil.com</a>
+      <a href="/">Back to Omaxil Tech</a>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll('.star-option, .radio-option').forEach(option => {
+      const input = option.querySelector('input');
+      input.addEventListener('change', function() {
+        const group = option.closest('.star-rating, .radio-group');
+        group.querySelectorAll('.star-option, .radio-option').forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        option.classList.add('selected');
+      });
+    });
+
+    (function(){
+      const form = document.getElementById('feedbackForm');
+      const note = document.getElementById('note');
+      if(!form) return;
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+
+        try {
+          const res = await fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            note.style.color = '#10b981';
+            note.textContent = 'Thank you for your feedback! Your response has been submitted.';
+            btn.textContent = 'Submitted ✓';
+            form.reset();
+            document.querySelectorAll('.star-option, .radio-option').forEach(opt => {
+              opt.classList.remove('selected');
+            });
+          } else {
+            const data = await res.json().catch(()=>({}));
+            note.style.color = '#ef4444';
+            note.textContent = data.error || 'Submission failed — please try again.';
+            btn.disabled = false;
+            btn.textContent = 'Submit Feedback';
+          }
+        } catch(err) {
+          console.error(err);
+          note.style.color = '#ef4444';
+          note.textContent = 'Network error — please check your connection and try again.';
+          btn.disabled = false;
+          btn.textContent = 'Submit Feedback';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

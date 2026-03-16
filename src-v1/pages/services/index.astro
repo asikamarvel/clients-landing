@@ -1,0 +1,62 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import CTABanner from '@components/CTABanner.astro';
+import { services } from '@data/services';
+---
+
+<Layout
+  title="Services"
+  description="Explore Omaxil Tech's full range of technology services — web design, app development, AI solutions, ERP systems, digital transformation, and tech consultancy."
+>
+  <Hero
+    headline="Technology Services That <span class='text-gradient'>Drive Results</span>"
+    subtitle="Six core service pillars, one clear mission: delivering technology solutions that move your business forward."
+    compact
+    primaryCTA={{ label: 'Get a Quote', href: '/contact/' }}
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <SectionHeading
+        label="Our Services"
+        title="What We Deliver"
+        subtitle="Each service line is led by experienced specialists who understand both the technology and the business context behind it."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <ServiceCard
+            icon={service.icon}
+            title={service.title}
+            description={service.description.slice(0, 140) + '...'}
+            href={`/services/${service.slug}/`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Training mention -->
+  <section class="section-padding-sm bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8 text-center">
+      <h2 class="text-section-title font-display font-semibold text-text-primary">
+        Plus: Professional <span class="text-gradient">Tech Training</span>
+      </h2>
+      <p class="mt-4 text-lg text-text-secondary max-w-2xl mx-auto">
+        Beyond building solutions, we build people. Our training programs equip teams with the skills they need to thrive — with a dedicated focus on AI and emerging technologies.
+      </p>
+      <div class="mt-8">
+        <a href="/training/" class="btn-secondary">Explore Training Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Have a project in mind?"
+    subtitle="Tell us what you need. We'll tell you exactly how we can help."
+    buttonLabel="Start a Conversation"
+  />
+</Layout>

@@ -1,0 +1,70 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import ContactForm from '@components/ContactForm.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with Omaxil Tech. We'd love to hear about your project, training needs, or partnership opportunities."
+>
+  <Hero
+    headline="Let's Build Something <span class='text-gradient'>Together</span>"
+    subtitle="Whether you have a project in mind, a team to train, or just want to explore how we can help — we're here."
+    compact
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <h2 class="text-2xl font-display font-semibold text-text-primary mb-2">Send us a message</h2>
+          <p class="text-text-secondary mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+          <ContactForm />
+        </div>
+
+        <!-- Info sidebar -->
+        <div class="lg:col-span-2">
+          <div class="card-surface p-8 space-y-8 sticky top-28">
+            <div>
+              <h3 class="text-sm font-semibold text-text-primary uppercase tracking-widest mb-3">Office</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">
+                Abuja, FCT<br />Nigeria
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-semibold text-text-primary uppercase tracking-widest mb-3">Email</h3>
+              <a href="mailto:support@omaxil.com" class="text-accent text-sm hover:text-accent-light no-underline">
+                support@omaxil.com
+              </a>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-semibold text-text-primary uppercase tracking-widest mb-3">Serving</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">
+                Clients across the United States, United Kingdom, Europe, and Africa.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-semibold text-text-primary uppercase tracking-widest mb-3">Response Time</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">
+                We typically respond within 24 hours on business days.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-surface-300">
+              <p class="text-text-muted text-xs leading-relaxed">
+                Prefer a direct conversation? Email us at
+                <a href="mailto:support@omaxil.com" class="text-accent hover:text-accent-light no-underline">support@omaxil.com</a>
+                or use the form — it goes to the same inbox.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

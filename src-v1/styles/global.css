@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-surface text-text-secondary font-body;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-accent-light;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-text-primary;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* ── Component classes ── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-accent text-surface
+           font-semibold rounded-btn transition-all duration-200 hover:bg-accent-light
+           hover:shadow-lg hover:shadow-accent/20 text-[15px] no-underline;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-surface-400
+           text-text-primary font-medium rounded-btn transition-all duration-200
+           hover:border-accent/40 hover:text-accent text-[15px] no-underline;
+  }
+}
+
+/* ── Utility classes ── */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+  }
+
+  .border-subtle {
+    @apply border border-white/[0.04];
+  }
+
+  .card-surface {
+    @apply bg-surface-100 border-subtle rounded-card;
+  }
+
+  .section-padding {
+    @apply py-section px-6 md:px-8;
+  }
+
+  .section-padding-sm {
+    @apply py-section-sm px-6 md:px-8;
+  }
+
+  .container-site {
+    @apply max-w-site mx-auto w-full;
+  }
+}

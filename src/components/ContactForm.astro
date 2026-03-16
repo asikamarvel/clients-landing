@@ -1,0 +1,91 @@
+---
+interface Props {
+  formspreeEndpoint?: string;
+}
+
+const { formspreeEndpoint = 'https://formspree.io/f/mqagvzgp' } = Astro.props;
+
+const inputClass = 'w-full px-4 py-2.5 bg-surface-100 border border-surface-300/50 rounded-btn text-[14px] text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-accent/40 transition-colors duration-300';
+---
+
+<form id="contact-form" action={formspreeEndpoint} method="POST" novalidate class="space-y-5">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div>
+      <label for="name" class="block text-[12px] text-text-muted uppercase tracking-[0.1em] mb-1.5">Name</label>
+      <input type="text" name="name" id="name" required placeholder="Your name" class={inputClass} />
+    </div>
+    <div>
+      <label for="email" class="block text-[12px] text-text-muted uppercase tracking-[0.1em] mb-1.5">Email</label>
+      <input type="email" name="email" id="email" required placeholder="you@company.com" class={inputClass} />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div>
+      <label for="company" class="block text-[12px] text-text-muted uppercase tracking-[0.1em] mb-1.5">Company</label>
+      <input type="text" name="company" id="company" placeholder="Optional" class={inputClass} />
+    </div>
+    <div>
+      <label for="service" class="block text-[12px] text-text-muted uppercase tracking-[0.1em] mb-1.5">Service</label>
+      <select name="service" id="service" class:list={[inputClass, 'appearance-none cursor-pointer']}>
+        <option value="">Select...</option>
+        <option>Web Design & Management</option>
+        <option>App Design & Development</option>
+        <option>Software & AI Agents</option>
+        <option>ERP Solutions</option>
+        <option>Digital Transformation</option>
+        <option>Consultancy</option>
+        <option>Training</option>
+        <option>Other</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <label for="message" class="block text-[12px] text-text-muted uppercase tracking-[0.1em] mb-1.5">Message</label>
+    <textarea name="message" id="message" rows="4" required placeholder="How can we help?" class:list={[inputClass, 'resize-vertical min-h-[100px]']}></textarea>
+  </div>
+
+  <input type="text" name="_gotcha" style="display:none" />
+
+  <button type="submit" class="btn-primary w-full">Send Message</button>
+  <p id="form-status" class="text-[13px] text-center text-text-muted"></p>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        if (status) {
+          status.style.color = '#4e5faa';
+          status.textContent = 'Message sent. We\u2019ll be in touch shortly.';
+        }
+        btn.textContent = 'Sent';
+        form.reset();
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      if (status) {
+        status.style.color = '#ef4444';
+        status.textContent = 'Something went wrong. Please try again or email support@omaxil.com.';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>

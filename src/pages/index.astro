@@ -1,0 +1,161 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import PartnerLogos from '@components/PartnerLogos.astro';
+import CTABanner from '@components/CTABanner.astro';
+import { services } from '@data/services';
+---
+
+<Layout title="Home">
+  <Hero
+    headline="With AI, anything is possible"
+    subtitle="Omaxil Tech builds intelligent solutions that simplify how you work. We design, develop, and deploy AI-powered systems — and we train teams to use them effectively."
+    primaryCTA={{ label: 'Explore Services', href: '/services/' }}
+    secondaryCTA={{ label: 'Get Started', href: '/contact/' }}
+    backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80"
+  />
+
+  <PartnerLogos />
+
+  <!-- Services -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal">
+        <SectionHeading
+          label="Services"
+          title="What we build"
+          subtitle="From web applications to AI agents, ERP systems to automation workflows — we deliver solutions that work."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+        {services.map((service) => (
+          <div class="reveal">
+            <ServiceCard
+              icon={service.icon}
+              title={service.shortTitle}
+              description={service.tagline}
+              href={`/services/${service.slug}/`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-Powered Section -->
+  <section class="section-padding bg-surface-50/40">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-left">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">AI at the Core</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
+            We believe AI should be accessible to everyone
+          </h2>
+          <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
+            AI is not just for tech giants. We partner with organizations of all sizes — businesses, ministries, government agencies, and grassroots initiatives — to bring intelligent automation within reach. Our mission is to simplify complex workflows and unlock new possibilities through AI.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {[
+              'AI agents that automate repetitive tasks and decision-making',
+              'Custom LLM integrations tailored to your specific workflows',
+              'Training programs that demystify AI for non-technical teams',
+              'Partnerships to bring AI capabilities to underserved communities',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
+                <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <a href="/training/" class="btn-primary">Learn About AI Training</a>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <img
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
+            alt="AI technology"
+            class="rounded-xl w-full object-cover aspect-[4/3] opacity-90"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-right order-2 lg:order-1">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+            alt="Training session"
+            class="rounded-xl w-full object-cover aspect-[4/3] opacity-90"
+            loading="lazy"
+          />
+        </div>
+        <div class="reveal-left order-1 lg:order-2">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Training Programs</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
+            Making AI knowledge accessible
+          </h2>
+          <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
+            We run structured training programs designed to bring AI literacy to organizations at every level. From prompt engineering fundamentals to building production AI agents — our curriculum is practical, current, and taught by practitioners.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {[
+              'Hands-on curriculum developed by working engineers',
+              'Programs for individuals, teams, and entire organizations',
+              'Grassroots partnerships to democratize AI education',
+              'Specialized tracks in web, mobile, cloud, and cybersecurity',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
+                <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <a href="/training/" class="btn-primary">View Training Programs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal">
+        <SectionHeading
+          label="Process"
+          title="How we work"
+          subtitle="Clear communication, iterative delivery, and genuine partnership."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 stagger">
+        {[
+          { step: '01', title: 'Understand', desc: 'We start by listening. What are you trying to achieve? What workflows need simplifying? Where can AI create real value?' },
+          { step: '02', title: 'Build', desc: 'Iterative development with regular checkpoints. We keep you informed and adjust as we learn more about your needs.' },
+          { step: '03', title: 'Deploy & Support', desc: 'We launch, train your team, and stay engaged. Long-term support is standard — we are invested in your success.' },
+        ].map((item) => (
+          <div class="reveal card-surface p-7">
+            <span class="text-[11px] text-text-muted/30 uppercase tracking-[0.15em] font-medium">{item.step}</span>
+            <h3 class="mt-3 text-[16px] font-display font-normal text-text-primary">{item.title}</h3>
+            <p class="mt-2 text-text-muted text-[14px] leading-relaxed font-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Ready to explore what's possible?"
+    subtitle="Let's discuss how AI can simplify your work and unlock new capabilities."
+  />
+</Layout>

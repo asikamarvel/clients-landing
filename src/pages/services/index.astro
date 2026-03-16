@@ -1,0 +1,51 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import CTABanner from '@components/CTABanner.astro';
+import { services } from '@data/services';
+---
+
+<Layout title="Services" description="Technology services from Omaxil Tech — AI solutions, web and app development, ERP systems, digital transformation, and consultancy.">
+  <Hero
+    headline="Solutions that simplify how you work"
+    subtitle="From AI-powered automation to custom software development — we build technology that creates real value for your organization."
+    compact
+    primaryCTA={{ label: 'Request a Consultation', href: '/contact/' }}
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal">
+        <SectionHeading
+          label="Our Services"
+          title="What we build"
+          subtitle="Six integrated practice areas, each focused on delivering measurable outcomes."
+        />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+        {services.map((service) => (
+          <div class="reveal">
+            <ServiceCard
+              icon={service.icon}
+              title={service.title}
+              description={service.tagline}
+              href={`/services/${service.slug}/`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding-sm bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8 text-center reveal">
+      <h2 class="text-section-title font-display font-light text-text-primary">AI training for teams</h2>
+      <p class="mt-3 text-[15px] text-text-secondary max-w-xl mx-auto font-light">Beyond building solutions, we teach organizations how to use AI effectively. Our training programs are designed to make AI accessible at every level.</p>
+      <div class="mt-6"><a href="/training/" class="btn-secondary">View Training Programs</a></div>
+    </div>
+  </section>
+
+  <CTABanner headline="Have a project in mind?" subtitle="Share what you are trying to achieve and we will outline how we can help." buttonLabel="Start a Conversation" />
+</Layout>

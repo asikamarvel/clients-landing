@@ -1,0 +1,75 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import PartnerLogos from '@components/PartnerLogos.astro';
+import CTABanner from '@components/CTABanner.astro';
+---
+
+<Layout title="About" description="Omaxil Tech — our story, mission, and the belief that AI can simplify work for everyone.">
+  <Hero
+    headline="We believe in the power of AI to transform work"
+    subtitle="Omaxil Tech exists to make intelligent technology accessible — building solutions that simplify complex workflows and training teams to harness AI effectively."
+    compact
+    backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80"
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-left">
+          <SectionHeading label="Our Story" title="Built on a simple belief" align="left" />
+          <div class="space-y-4 text-[15px] text-text-secondary leading-relaxed font-light -mt-6">
+            <p>Omaxil Tech was founded on one conviction: with AI, anything is possible — and that possibility should not be limited to those with massive budgets or technical expertise.</p>
+            <p>We build AI-powered solutions that simplify how organizations work. From custom software and intelligent agents to full ERP implementations, our focus is always the same: create technology that actually helps people do their jobs better.</p>
+            <p>But building is only half the equation. We also run professional training programs to bring AI literacy to organizations of all sizes. We partner with businesses, government agencies, ministries, and community organizations to make AI knowledge accessible at the grassroots level.</p>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Team collaboration" class="rounded-xl w-full object-cover aspect-[4/3] opacity-90" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 stagger">
+        <div class="reveal card-surface p-8">
+          <span class="text-[11px] text-gold uppercase tracking-[0.15em] font-medium">Mission</span>
+          <h3 class="mt-3 text-[18px] font-display font-light text-text-primary">Simplify work through intelligent technology</h3>
+          <p class="mt-3 text-[14px] text-text-secondary leading-relaxed font-light">To build AI-powered solutions that make complex workflows simple, and to train teams so they can harness these capabilities themselves. We measure success by the real impact we create for the organizations we serve.</p>
+        </div>
+        <div class="reveal card-surface p-8">
+          <span class="text-[11px] text-gold uppercase tracking-[0.15em] font-medium">Vision</span>
+          <h3 class="mt-3 text-[18px] font-display font-light text-text-primary">AI for everyone, everywhere</h3>
+          <p class="mt-3 text-[14px] text-text-secondary leading-relaxed font-light">A world where AI capabilities are not gatekept by budget or technical expertise. Through partnerships and training, we are working to bring intelligent automation to organizations at every level — from enterprises to grassroots initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal"><SectionHeading label="Values" title="What guides us" /></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+        {[
+          { title: 'Possibility', desc: 'We believe AI removes limits. Every project starts with the question: what could this enable?' },
+          { title: 'Accessibility', desc: 'Great technology should not be exclusive. We build and teach so that more people can benefit.' },
+          { title: 'Simplicity', desc: 'The best solutions make complex things simple. If it is not easier to use, we are not done.' },
+          { title: 'Partnership', desc: 'We invest in relationships, not transactions. Your success is how we measure our own.' },
+          { title: 'Impact', desc: 'Every engagement should create tangible value. We focus on outcomes, not just deliverables.' },
+          { title: 'Learning', desc: 'AI evolves fast. We stay current so our clients and trainees always get what is most relevant.' },
+        ].map((v) => (
+          <div class="reveal card-surface p-6">
+            <h3 class="text-[14px] font-display font-normal text-text-primary mb-2">{v.title}</h3>
+            <p class="text-[13px] text-text-muted leading-relaxed font-light">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PartnerLogos />
+  <CTABanner headline="Interested in working together?" subtitle="Let's explore how Omaxil Tech can help you harness AI." buttonLabel="Contact Us" />
+</Layout>

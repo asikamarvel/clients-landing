@@ -1,0 +1,148 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Training', href: '/training/' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/' || currentPath === '';
+  return currentPath.startsWith(href);
+}
+---
+
+<nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-site mx-auto w-full px-6 md:px-8 flex items-center justify-between h-20">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 no-underline">
+      <span class="text-2xl font-display font-bold text-text-primary">
+        Omaxil<span class="text-accent">.</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-8">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-[15px] font-medium no-underline transition-colors duration-200',
+            isActive(link.href) ? 'text-accent' : 'text-text-primary hover:text-accent',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact/" class="btn-primary text-sm !px-5 !py-2.5">Get in Touch</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden relative w-10 h-10 flex items-center justify-center text-text-primary"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <div id="hamburger-icon" class="flex flex-col gap-1.5 transition-all duration-300">
+        <span class="block w-6 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+        <span class="block w-6 h-0.5 bg-current transition-all duration-300"></span>
+        <span class="block w-4 h-0.5 bg-current transition-all duration-300 origin-center"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile menu overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-surface/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-500 ease-out lg:hidden"
+  >
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          'text-3xl font-display font-semibold no-underline transition-colors',
+          isActive(link.href) ? 'text-accent' : 'text-text-primary hover:text-accent',
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a href="/contact/" class="btn-primary mt-4 text-lg !px-8 !py-4">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- Spacer for fixed nav -->
+<div class="h-20"></div>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('hamburger-icon');
+  let isOpen = false;
+
+  // Scroll behavior — transparent to solid
+  function handleScroll() {
+    if (!nav) return;
+    if (window.scrollY > 60) {
+      nav.classList.add('bg-surface/80', 'backdrop-blur-md', 'border-b', 'border-surface-300');
+    } else {
+      nav.classList.remove('bg-surface/80', 'backdrop-blur-md', 'border-b', 'border-surface-300');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  // Mobile menu toggle
+  toggle?.addEventListener('click', () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      menu?.classList.remove('translate-x-full');
+      menu?.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+      toggle.setAttribute('aria-expanded', 'true');
+      // Animate hamburger to X
+      const spans = icon?.querySelectorAll('span');
+      if (spans) {
+        spans[0].style.transform = 'rotate(45deg) translateY(4px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-4px)';
+        spans[2].style.width = '1.5rem';
+      }
+    } else {
+      menu?.classList.add('translate-x-full');
+      menu?.classList.remove('translate-x-0');
+      document.body.style.overflow = '';
+      toggle.setAttribute('aria-expanded', 'false');
+      const spans = icon?.querySelectorAll('span');
+      if (spans) {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = '';
+        spans[2].style.width = '1rem';
+      }
+    }
+  });
+
+  // Close mobile menu on link click
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('translate-x-full');
+      menu.classList.remove('translate-x-0');
+      document.body.style.overflow = '';
+      isOpen = false;
+      toggle?.setAttribute('aria-expanded', 'false');
+      const spans = icon?.querySelectorAll('span');
+      if (spans) {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = '';
+        spans[2].style.width = '1rem';
+      }
+    });
+  });
+</script>

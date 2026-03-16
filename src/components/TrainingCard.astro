@@ -1,0 +1,33 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  topics: string[];
+  featured?: boolean;
+}
+
+const { icon, title, topics, featured = false } = Astro.props;
+---
+
+<div class:list={[
+  'card-surface p-7 transition-all duration-500 hover:bg-surface-200',
+  featured && 'border-accent-bright/20 ring-1 ring-accent-bright/5'
+]}>
+  <div class="w-8 h-8 rounded-md bg-accent/8 flex items-center justify-center text-accent-bright mb-4">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="text-[15px] font-display font-normal text-text-primary mb-3">{title}</h3>
+  {featured && (
+    <span class="inline-block text-[10px] font-medium text-gold bg-gold/10 px-2 py-0.5 rounded-full mb-3 uppercase tracking-[0.15em]">
+      Featured
+    </span>
+  )}
+  <ul class="space-y-2">
+    {topics.map((topic) => (
+      <li class="flex items-start gap-2 text-[13px] text-text-muted leading-relaxed">
+        <span class="text-accent-bright/60 mt-0.5 shrink-0">&#8212;</span>
+        {topic}
+      </li>
+    ))}
+  </ul>
+</div>

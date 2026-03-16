@@ -1,0 +1,69 @@
+---
+import type { Service } from '@data/services';
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import CTABanner from '@components/CTABanner.astro';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<Layout title={service.title} description={service.description}>
+  <Hero
+    headline={service.tagline}
+    subtitle={service.description.slice(0, 180)}
+    compact
+    backgroundImage={service.heroImage}
+    primaryCTA={{ label: 'Request a Consultation', href: '/contact/' }}
+    secondaryCTA={{ label: 'View All Services', href: '/services/' }}
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="reveal">
+          <SectionHeading label="Overview" title="What We Deliver" align="left" />
+          <p class="text-text-secondary leading-relaxed text-[15px] font-light -mt-6">{service.description}</p>
+        </div>
+        <div class="reveal-right">
+          <SectionHeading label="Scope" title="Key Deliverables" align="left" />
+          <ul class="space-y-3 -mt-6">
+            {service.offerings.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-accent-bright/50 shrink-0 text-[13px]">&#8212;</span>
+                <span class="text-text-secondary text-[14px]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <SectionHeading
+        label="Methodology"
+        title="Our Approach"
+        subtitle="A structured, transparent process from discovery through delivery."
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto stagger">
+        {service.approach.map((step, i) => (
+          <div class="reveal card-surface p-6">
+            <span class="text-[11px] text-text-muted/40 uppercase tracking-[0.15em] font-medium">Step {i + 1}</span>
+            <p class="mt-2 text-[14px] text-text-secondary leading-relaxed font-light">{step}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline={`Interested in ${service.shortTitle.toLowerCase()}?`}
+    subtitle="Let\u2019s talk about what you need and how we can deliver it."
+  />
+</Layout>

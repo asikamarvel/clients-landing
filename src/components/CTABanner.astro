@@ -1,0 +1,29 @@
+---
+interface Props {
+  headline?: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+}
+
+const {
+  headline = 'Let\u2019s discuss your next project',
+  subtitle = 'We\u2019d like to understand your goals and explore how Omaxil Tech can help.',
+  buttonLabel = 'Get in Touch',
+  buttonHref = '/contact/',
+} = Astro.props;
+---
+
+<section class="section-padding">
+  <div class="max-w-site mx-auto w-full px-6 md:px-8">
+    <div class="reveal-scale relative overflow-hidden rounded-xl bg-surface-100 border border-surface-300/30 px-8 py-14 md:px-14 md:py-16 text-center">
+      <div class="relative z-10">
+        <h2 class="text-section-title font-display font-light text-text-primary">{headline}</h2>
+        <p class="mt-3 text-[15px] text-text-secondary max-w-md mx-auto font-light">{subtitle}</p>
+        <div class="mt-7">
+          <a href={buttonHref} class="btn-primary">{buttonLabel}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

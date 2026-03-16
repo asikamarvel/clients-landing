@@ -1,0 +1,22 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { icon, title, description, href } = Astro.props;
+---
+
+<a href={href} class="group card-surface p-7 flex flex-col gap-3 transition-all duration-500 hover:bg-surface-200 hover:border-accent/10 no-underline">
+  <div class="w-9 h-9 rounded-lg bg-accent/8 flex items-center justify-center text-accent-bright group-hover:bg-accent/15 transition-colors duration-500">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="text-[15px] font-display font-normal text-text-primary">{title}</h3>
+  <p class="text-text-muted text-[13px] leading-relaxed">{description}</p>
+  <span class="mt-auto flex items-center gap-1.5 text-accent-bright text-[12px] font-normal opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-0 group-hover:translate-x-1">
+    Learn more
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </span>
+</a>

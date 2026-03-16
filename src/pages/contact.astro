@@ -1,0 +1,49 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import ContactForm from '@components/ContactForm.astro';
+---
+
+<Layout title="Contact" description="Contact Omaxil Tech to discuss AI solutions, training programs, or partnership opportunities.">
+  <Hero
+    headline="Let's talk about what's possible"
+    subtitle="Whether you have a project in mind, want to explore training options, or are interested in a partnership — we're here."
+    compact
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-14">
+        <div class="lg:col-span-3 reveal">
+          <h2 class="text-[18px] font-display font-light text-text-primary mb-1">Send us a message</h2>
+          <p class="text-[14px] text-text-muted font-light mb-6">We typically respond within one business day.</p>
+          <ContactForm />
+        </div>
+        <div class="lg:col-span-2 reveal-right">
+          <div class="card-surface p-7 space-y-6 lg:sticky lg:top-24">
+            <div>
+              <h3 class="text-[11px] text-text-muted uppercase tracking-[0.15em] mb-2 font-medium">Office</h3>
+              <p class="text-[14px] text-text-secondary font-light">Abuja, FCT<br />Nigeria</p>
+            </div>
+            <div>
+              <h3 class="text-[11px] text-text-muted uppercase tracking-[0.15em] mb-2 font-medium">Email</h3>
+              <a href="mailto:support@omaxil.com" class="text-[14px] text-accent-bright hover:text-accent-light no-underline">support@omaxil.com</a>
+            </div>
+            <div>
+              <h3 class="text-[11px] text-text-muted uppercase tracking-[0.15em] mb-2 font-medium">Let's Discuss</h3>
+              <ul class="text-[14px] text-text-secondary font-light space-y-1">
+                <li>AI solutions and automation</li>
+                <li>Training programs for your team</li>
+                <li>Partnership opportunities</li>
+                <li>Custom software development</li>
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-surface-300/30">
+              <p class="text-[12px] text-text-muted/60 font-light leading-relaxed">Prefer email? Reach us at <a href="mailto:support@omaxil.com" class="text-accent-bright/70 no-underline">support@omaxil.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

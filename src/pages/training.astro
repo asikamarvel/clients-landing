@@ -1,0 +1,121 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import TrainingCard from '@components/TrainingCard.astro';
+import CTABanner from '@components/CTABanner.astro';
+import { trainingTracks } from '@data/training';
+---
+
+<Layout title="Training" description="AI and technology training from Omaxil Tech — structured curriculum designed to make AI accessible to organizations of all sizes.">
+  <Hero
+    headline="Making AI accessible to everyone"
+    subtitle="Structured training programs that demystify AI and equip teams with practical skills. We partner with organizations to bring AI literacy to the grassroots level."
+    compact
+    backgroundImage="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1400&q=80"
+    primaryCTA={{ label: 'Inquire About Training', href: '/contact/' }}
+  />
+
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal"><SectionHeading label="Our Approach" title="Training that creates real capability" /></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
+        {[
+          { title: 'Practitioner-Led', desc: 'Taught by engineers who use these tools daily, not recycled course content.' },
+          { title: 'Hands-On', desc: 'Every module includes practical projects. You learn by building real things.' },
+          { title: 'Accessible', desc: 'Designed for all levels — from complete beginners to technical teams.' },
+          { title: 'Partnership-Driven', desc: 'We work with organizations to bring AI training to communities that need it.' },
+        ].map((item) => (
+          <div class="reveal card-surface p-6">
+            <h3 class="text-[14px] font-display font-normal text-text-primary mb-2">{item.title}</h3>
+            <p class="text-[13px] text-text-muted leading-relaxed font-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal"><SectionHeading label="Programs" title="Training tracks" subtitle="Progressive curriculum with assessments, projects, and certification." /></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
+        {trainingTracks.map((track) => (
+          <div class="reveal"><TrainingCard icon={track.icon} title={track.title} topics={track.topics} featured={track.featured} /></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Deep Dive -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-right order-2 lg:order-1">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80" alt="AI and machine learning" class="rounded-xl w-full object-cover aspect-[4/3] opacity-90" loading="lazy" />
+        </div>
+        <div class="reveal-left order-1 lg:order-2">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Featured Track</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">AI & Machine Learning</h2>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">Our flagship program. Participants progress from AI fundamentals to building production-ready agents. The curriculum is continuously updated to reflect the rapid pace of change in this field.</p>
+          <ul class="mt-5 space-y-2.5">
+            {[
+              'Prompt engineering — from basics to advanced techniques',
+              'Building AI agents with tool use, memory, and reasoning',
+              'Integrating LLMs into existing applications and workflows',
+              'Multi-agent systems and orchestration patterns',
+              'Responsible AI practices and ethical considerations',
+              'Practical applications across text, code, and data',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
+                <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-7"><a href="/contact/" class="btn-primary">Inquire About AI Training</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grassroots -->
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-left">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Partnerships</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">Bringing AI to the grassroots</h2>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">We believe AI should not be exclusive to well-resourced organizations. Through partnerships with ministries, NGOs, government agencies, and community organizations, we are working to democratize AI education and make it accessible to everyone.</p>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">If your organization is interested in bringing AI training to your community, we would love to talk about how we can work together.</p>
+          <div class="mt-7"><a href="/contact/" class="btn-secondary">Discuss a Partnership</a></div>
+        </div>
+        <div class="reveal-right">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Community training" class="rounded-xl w-full object-cover aspect-[4/3] opacity-90" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrollment -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal"><SectionHeading label="Enrollment" title="How to get started" /></div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-4xl mx-auto stagger">
+        {[
+          { step: '01', title: 'Inquire', desc: 'Reach out with your interest area and goals.' },
+          { step: '02', title: 'Assess', desc: 'We determine the right program and cohort for you.' },
+          { step: '03', title: 'Learn', desc: 'Structured modules, live instruction, hands-on projects.' },
+          { step: '04', title: 'Certify', desc: 'Complete your capstone and receive certification.' },
+        ].map((item) => (
+          <div class="reveal card-surface p-5 text-center">
+            <span class="text-[11px] text-text-muted/30 uppercase tracking-[0.15em]">{item.step}</span>
+            <h3 class="mt-2 text-[15px] font-display font-normal text-text-primary">{item.title}</h3>
+            <p class="mt-1.5 text-[13px] text-text-muted leading-relaxed font-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Ready to unlock AI for your team?" subtitle="Whether for an individual or an entire organization, let's find the right path." buttonLabel="Inquire About Training" />
+</Layout>

@@ -1,0 +1,43 @@
+---
+interface Props {
+  headline: string;
+  subtitle: string;
+  primaryCTA?: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+  backgroundImage?: string;
+  compact?: boolean;
+}
+
+const {
+  headline,
+  subtitle,
+  primaryCTA,
+  secondaryCTA,
+  backgroundImage,
+  compact = false,
+} = Astro.props;
+---
+
+<section class:list={['relative flex items-center overflow-hidden', compact ? 'min-h-[50vh]' : 'min-h-[85vh]']}>
+  {backgroundImage ? (
+    <div class="absolute inset-0">
+      <img src={backgroundImage} alt="" class="w-full h-full object-cover opacity-10" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-b from-surface/50 via-surface/85 to-surface"></div>
+    </div>
+  ) : (
+    <div class="absolute inset-0 bg-gradient-to-b from-surface-50 to-surface"></div>
+  )}
+
+  <div class="relative z-10 max-w-site mx-auto w-full px-6 md:px-8 py-20">
+    <h1 class="reveal text-hero font-display font-extralight text-text-primary max-w-3xl" set:html={headline} />
+    <p class="reveal mt-5 text-hero-sub text-text-secondary max-w-xl font-light" style="transition-delay: 100ms">
+      {subtitle}
+    </p>
+    {(primaryCTA || secondaryCTA) && (
+      <div class="reveal mt-8 flex gap-3 flex-wrap" style="transition-delay: 200ms">
+        {primaryCTA && <a href={primaryCTA.href} class="btn-primary">{primaryCTA.label}</a>}
+        {secondaryCTA && <a href={secondaryCTA.href} class="btn-secondary">{secondaryCTA.label}</a>}
+      </div>
+    )}
+  </div>
+</section>
