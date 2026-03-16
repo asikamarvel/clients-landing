@@ -1,0 +1,196 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import CTABanner from '@components/CTABanner.astro';
+---
+
+<Layout title="Build with AI" description="AI-powered development tools and training from Omaxil Tech. Learn to build faster, debug smarter, and unlock new possibilities.">
+  <Hero
+    headline="If you can think it, you can build it"
+    subtitle="AI has changed the game. Debugging is faster. Development is more intuitive. And the barrier to building real software has never been lower. We help you harness these tools — wherever you are in your journey."
+    compact
+    backgroundImage="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1400&q=80"
+    primaryCTA={{ label: 'Start Learning', href: '/contact/' }}
+  />
+
+  <!-- What AI Changes -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal">
+        <SectionHeading
+          label="The Shift"
+          title="What AI changes for developers"
+          subtitle="Not a replacement for skill — an accelerator for growth."
+        />
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 stagger">
+        {[
+          {
+            title: 'Debug in minutes, not hours',
+            desc: 'AI tools can trace errors, suggest fixes, and explain what went wrong. Problems that used to take hours now take minutes. You learn faster because you understand failures faster.',
+          },
+          {
+            title: 'Build with confidence',
+            desc: 'Stuck on syntax? Unsure about architecture? AI assists in real-time — helping you write cleaner code, explore patterns, and move from idea to implementation without getting blocked.',
+          },
+          {
+            title: 'Sharpen your instincts',
+            desc: 'The more you build, the better you get. AI removes friction so you can focus on problem-solving, not searching Stack Overflow. Your skills compound faster when you ship more.',
+          },
+        ].map((item) => (
+          <div class="reveal card-surface p-7">
+            <h3 class="text-[16px] font-display font-normal text-text-primary">{item.title}</h3>
+            <p class="mt-2 text-text-muted text-[14px] leading-relaxed font-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- For Everyone -->
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-left">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">For Everyone</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
+            We meet you where you are
+          </h2>
+          <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
+            Complete beginner? We will show you how to build your first project with AI as your guide. Experienced developer? Learn to integrate AI tools into your workflow and multiply your output.
+          </p>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">
+            This is not about replacing your skills with prompts. It is about using AI to learn faster, build smarter, and unlock capabilities you did not know you had. The fundamentals still matter — AI just helps you get there quicker.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {[
+              'Students starting their first coding project',
+              'Career changers learning to build software',
+              'Developers looking to accelerate their workflow',
+              'Teams adopting AI-assisted development practices',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
+                <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="reveal-right">
+          <img
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+            alt="Learning with AI"
+            class="rounded-xl w-full object-cover aspect-[4/3] opacity-90"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Can Build -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="reveal">
+        <SectionHeading
+          label="Possibilities"
+          title="What you can build"
+          subtitle="Real projects. Real skills. AI-assisted from start to finish."
+        />
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
+        {[
+          { title: 'Web Applications', desc: 'Full-stack apps with modern frameworks — faster than you thought possible.' },
+          { title: 'Automations', desc: 'Scripts and workflows that handle repetitive tasks so you can focus on what matters.' },
+          { title: 'Data Tools', desc: 'Dashboards, reports, and analysis tools that turn raw data into insights.' },
+          { title: 'Custom Agents', desc: 'AI-powered tools that work for you — from chatbots to intelligent assistants.' },
+        ].map((item) => (
+          <div class="reveal card-surface p-6">
+            <h3 class="text-[14px] font-display font-normal text-text-primary mb-2">{item.title}</h3>
+            <p class="text-[13px] text-text-muted leading-relaxed font-light">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Training -->
+  <section class="section-padding bg-surface-50/30">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-right order-2 lg:order-1">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+            alt="Training session"
+            class="rounded-xl w-full object-cover aspect-[4/3] opacity-90"
+            loading="lazy"
+          />
+        </div>
+        <div class="reveal-left order-1 lg:order-2">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Training</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
+            Learn to build with AI
+          </h2>
+          <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
+            Our training programs teach you how to use AI tools effectively — not as a crutch, but as a catalyst. You will learn the fundamentals of software development while leveraging AI to accelerate your progress.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {[
+              'Hands-on projects from day one',
+              'AI-assisted debugging and problem-solving',
+              'Modern development workflows and tools',
+              'Build a portfolio of real, working software',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-[14px] text-text-secondary font-light">
+                <span class="text-accent-bright/50 mt-0.5 shrink-0">&#8212;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <a href="/training/" class="btn-primary">Explore Training Programs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agents & Automation -->
+  <section class="section-padding">
+    <div class="max-w-site mx-auto w-full px-6 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-left">
+          <span class="text-[11px] text-gold uppercase tracking-[0.2em] font-medium">Beyond Code</span>
+          <h2 class="mt-3 text-section-title font-display font-light text-text-primary">
+            Agents, automations, and intelligent tools
+          </h2>
+          <p class="mt-4 text-[15px] text-text-secondary leading-relaxed font-light">
+            AI is not just for writing code. We help organizations deploy intelligent agents and automations that handle real work — from customer support to data processing to internal operations.
+          </p>
+          <p class="mt-3 text-[15px] text-text-secondary leading-relaxed font-light">
+            Whether you want to learn how to build these systems yourself or need us to build them for you, we have got you covered.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/services/software-agents/" class="btn-primary">Our Software Services</a>
+            <a href="/contact/" class="btn-secondary">Discuss Your Project</a>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
+            alt="Intelligent systems"
+            class="rounded-xl w-full object-cover aspect-[4/3] opacity-90"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Ready to start building?"
+    subtitle="Whether you are learning your first language or scaling your team's capabilities — let's talk."
+    buttonLabel="Get Started"
+  />
+</Layout>
